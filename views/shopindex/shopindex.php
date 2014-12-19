@@ -67,7 +67,7 @@ function ShopIndexView($arr_image, $arr_product, $arr_photo)
 			
 			});
 			
-			$('.image_product').ShowBigImage();
+			//$('.image_product').ShowBigImage();
 		
 		});
 	</script>
@@ -129,11 +129,35 @@ function ShopIndexView($arr_image, $arr_product, $arr_photo)
 			<?php
 			foreach($arr_product as $idproduct => $product)
 			{
+			//PhangoVar::$model['image_product']->components['photo']->show_image_url($arr_photo[$idproduct]); 
 			
+			$title_formatted=I18nField::show_formatted($product['title']);
+			
+			$offer_div='';
+					
+			$price_final=MoneyField::currency_format($product['price']);
+			
+			if($product['special_offer']>0)
+			{
+			
+				$offer_div='<span class="offer">¡¡¡Oferta!!!</span>';
+			
+				$price_final='<span style="text-decoration:line-through;">'.$price_final.'</span> '.MoneyField::currency_format($product['special_offer']);
+			
+			}
 			
 			?>
 			<div class="item">
-				<a class="image_product" href="<?php echo PhangoVar::$model['image_product']->components['photo']->show_image_url($arr_photo[$idproduct]); ?>" ><img src="<?php echo PhangoVar::$model['image_product']->components['photo']->show_image_url('medium_'.$arr_photo[$idproduct]); ?>" alt="<?php $arr_photo[$idproduct]; ?>" border="0" /></a>
+				<a class="image_product" href="<?php echo make_fancy_url(PhangoVar::$base_url, 'shop', 'viewproduct', array($idproduct, slugify($title_formatted))); ?>" >
+					<?php echo $offer_div; ?>
+					<div class="show_item">Ver</div>
+					<img src="<?php echo PhangoVar::$model['image_product']->components['photo']->show_image_url('medium_'.$arr_photo[$idproduct]); ?>" alt="<?php $arr_photo[$idproduct]; ?>" border="0" />
+				</a>
+				<div class="product_item">
+					<h3><?php echo $title_formatted; ?></h3>
+				
+					<span class="price"><?php echo $price_final; ?></span>
+				</div>
 			</div>
 			<?php
 			}

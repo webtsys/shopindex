@@ -8,7 +8,8 @@ class IndexSwitchClass {
 
 		//global $user_data, $model, $ip, $lang, $config_data, $base_path, $base_url, $cookie_path, $arr_block, $prefix_key, $block_title, $block_content, $block_urls, $block_type, $block_id, $config_data, $text_url, $arr_cache_jscript, $arr_cache_css, $arr_cache_header;
 		
-		load_model('shopindex', 'shop');
+		load_libraries(array('config_shop'), PhangoVar::$base_path.'modules/shop/libraries/');
+		load_model('shopindex');
 		
 		$header_js_pages='';
 		
