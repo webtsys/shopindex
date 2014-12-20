@@ -124,7 +124,7 @@ function ShopIndexView($arr_image, $arr_product, $arr_photo)
 		?>
 	</div>
 	<div class="title_line"><div class="title">Últimas novedades</div></div>
-	<div id="carousel_images_container">
+	<!--<div id="carousel_images_container">-->
 		<div id="owl-demo">	
 			<?php
 			foreach($arr_product as $idproduct => $product)
@@ -163,7 +163,7 @@ function ShopIndexView($arr_image, $arr_product, $arr_photo)
 			}
 			?>
 		</div>
-	</div>
+	<!--</div>-->
 	
 	<?php
 	
