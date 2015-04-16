@@ -151,7 +151,7 @@ function ShopIndexView($arr_image, $arr_product, $arr_photo)
 				<a class="image_product" href="<?php echo make_fancy_url(PhangoVar::$base_url, 'shop', 'viewproduct', array($idproduct, slugify($title_formatted))); ?>" >
 					<?php echo $offer_div; ?>
 					<div class="show_item">Ver</div>
-					<img src="<?php echo PhangoVar::$model['image_product']->components['photo']->show_image_url('medium_'.$arr_photo[$idproduct]); ?>" alt="<?php $arr_photo[$idproduct]; ?>" border="0" />
+					<img src="<?php echo PhangoVar::$model['image_product']->components['photo']->show_image_url('medium_'.$arr_photo[$idproduct]); ?>" alt="<?php $arr_photo[$idproduct]; ?>" border="0" style="height:225px;" />
 				</a>
 				<div class="product_item">
 					<h3><?php echo $title_formatted; ?></h3>

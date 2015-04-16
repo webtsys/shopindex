@@ -13,7 +13,7 @@ class IndexSwitchClass {
 		
 		$header_js_pages='';
 		
-		$name_page=PhangoVar::$lang['common']['home'];
+		$name_page=PhangoVar::$l_['common']->lang('home', 'Home');
 		
 		$cont_index_page='';
 
